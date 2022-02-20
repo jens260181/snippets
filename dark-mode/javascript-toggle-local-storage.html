@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode - Javascript Toggle mit Local Storage</title>
+    <script>
+        /**
+         *
+         * Schaue im Local Storage nach, ob das Item: darkmode den Wert "true" oder "false hat", wenn der Browser diese Funktion unterstützt
+         * Bei "true", erweitere das HTML Tag mit der Klasse: dark
+         * Bei "false" mache nix.
+         * 
+        */
+        if (typeof(Storage) !== "undefined") {
+            let darkmode = localStorage.getItem('darkmode');
+            if(darkmode == 'true')
+                document.documentElement.classList.add('dark');
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            outline: none;
+            box-sizing: border-box;
+            border: none;
+        }
+        body {
+            background-color: #fff;
+            font-family: Tahoma, Verdana, Arial;
+        }
+        .dark body {
+            background-color: black;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+        }
+        .content {
+            width: 75%;
+            border: 1px solid #666;
+            padding: 1rem;
+            margin: 1rem;
+            border-radius: 6px;
+            box-shadow: 0 0 16px rgba(0, 0, 0, .4);
+        }
+        .dark .content {
+            box-shadow: 0 0 20px rgba(255, 255, 255, .2);
+        }
+
+        h1, h2, p {
+            margin-bottom: 1rem;
+        }
+        h1 {
+            font-size: 1.3rem; 
+        }
+        h2 {
+            font-size: 1.1rem;
+        }
+        p{
+            font-size: .9rem;
+        } 
+        .dark h1, .dark h2, .dark p {
+            color: #fff;
+        }
+        #switcher {
+            cursor: pointer;
+            border: 1px solid #000;
+            padding: .5rem 2rem;
+            border-radius: 6px;
+            background-color: red;
+            transition: all .3s ease;
+        }
+        .dark #switcher {
+            color: #fff;
+            background-color: green;
+            border: 1px solid #ccc;
+        }
+        #switcher .on{
+            display: none;
+        }
+        .dark #switcher .on {
+            display: inline-block;
+        }
+        .dark #switcher .off {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="controller">
+            <div id="switcher">
+                <div class="modus">Dark Modus: <span class="off">Aus</span><span class="on">An</span></div>
+            </div>
+        </div>
+        <div class="content">
+            <h1>Dark Mode (Javascript Toggle mit Local Storage)</h1>
+            <h2>Dark Mode per Toggle (Switcher) aktivieren.</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+            Vel omnis molestias dolore distinctio ullam? Minus mollitia, numquam possimus, atque repellendus consequatur quia accusantium, adipisci dolore distinctio sunt eveniet totam nostrum.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+            Vel omnis molestias dolore distinctio ullam? Minus mollitia, numquam possimus, atque repellendus consequatur quia accusantium, adipisci dolore distinctio sunt eveniet totam nostrum.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+            Vel omnis molestias dolore distinctio ullam? Minus mollitia, numquam possimus, atque repellendus consequatur quia accusantium, adipisci dolore distinctio sunt eveniet totam nostrum.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+            Vel omnis molestias dolore distinctio ullam? Minus mollitia, numquam possimus, atque repellendus consequatur quia accusantium, adipisci dolore distinctio sunt eveniet totam nostrum.</p>
+        </div>
+    </div>
+    <script>
+        let switcher = document.querySelector('#switcher');
+        switcher.addEventListener('click', function(){
+            document.documentElement.classList.toggle('dark');
+            // Speichere den Zusatnd in den Local Storage, wenn der Browser dies unterstützt
+            if (typeof(Storage) !== "undefined") {
+                if(document.documentElement.classList.contains('dark')){
+                    localStorage.setItem('darkmode', true);
+                } else {
+                    localStorage.setItem('darkmode', false);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

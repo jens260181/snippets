@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode - Basic</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            outline: none;
+            box-sizing: border-box;
+            border: none;
+        }
+        body {
+            background-color: #fff;
+            font-family: Tahoma, Verdana, Arial;
+        }
+        .container {
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            
+        }
+        .content {
+            width: 75%;
+            border: 1px solid #666;
+            padding: 1rem;
+            margin: 1rem;
+            border-radius: 6px;
+            box-shadow: 0 0 16px rgba(0, 0, 0, .4);
+        }
+        h1, h2, p {
+            margin-bottom: 1rem;
+        }
+        h1 {
+            font-size: 1.3rem; 
+        }
+        h2 {
+            font-size: 1.1rem;
+        }
+        p{
+            font-size: .9rem;
+        }
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: black;
+            }
+            h1, h2, p {
+                color: #fff;
+            }
+            .content {
+                box-shadow: 0 0 20px rgba(255, 255, 255, .2);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>Dark Mode (Basic)</h1>
+            <h2>Dark Mode über den Browser (Entwickler Konsole) aktivieren.</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+            Vel omnis molestias dolore distinctio ullam? Minus mollitia, numquam possimus, atque repellendus consequatur quia accusantium, adipisci dolore distinctio sunt eveniet totam nostrum.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+            Vel omnis molestias dolore distinctio ullam? Minus mollitia, numquam possimus, atque repellendus consequatur quia accusantium, adipisci dolore distinctio sunt eveniet totam nostrum.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+            Vel omnis molestias dolore distinctio ullam? Minus mollitia, numquam possimus, atque repellendus consequatur quia accusantium, adipisci dolore distinctio sunt eveniet totam nostrum.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+            Vel omnis molestias dolore distinctio ullam? Minus mollitia, numquam possimus, atque repellendus consequatur quia accusantium, adipisci dolore distinctio sunt eveniet totam nostrum.</p>
+        </div>
+    </div>
+</body>
+</html>
